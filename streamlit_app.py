@@ -146,8 +146,8 @@ if authentication_status:
         unsafe_allow_html=True)
 
         # st_lottie(get_image_from_lottie(url = "https://assets8.lottiefiles.com/packages/lf20_mxzt4vtn.json"), key = "selectmodel", height=400)
-        with st.sidebar:
-            st_lottie(get_image_from_lottie(url = 'https://assets10.lottiefiles.com/packages/lf20_lfugvekh.json'), key='load', height=100)
+        # with st.sidebar:
+        #     st_lottie(get_image_from_lottie(url = 'https://assets10.lottiefiles.com/packages/lf20_lfugvekh.json'), key='load', height=100)
 
     st.warning("***SCROLL PAGE*** may get error and reload website. Please, wait for running ***DONE***!")
     su = st.empty()
