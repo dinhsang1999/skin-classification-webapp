@@ -13,6 +13,7 @@ model
 note.txt
 emty
 aa
+update.py
 ### Python ###
 # Byte-compiled / optimized / DLL files
 __pycache__/

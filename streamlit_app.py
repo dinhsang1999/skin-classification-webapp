@@ -20,7 +20,6 @@ import pandas as pd
 st.set_page_config( page_icon="👨‍🎓", page_title="Skin Cancer Classification")
 
 ss = st.empty()
-
 # --- USER AUTHENTICATION ---
 users = db.fetch_all_users()
 
@@ -47,8 +46,58 @@ if authentication_status == False:
 if authentication_status == None:
     st.warning("Please enter your username and password")
 
+sc = st.empty()
+col_ct,col_fb,col_ins,col_github,col_linkein,_,col_rg_logo,col_rg = sc.columns((4,1,1,1,1,14,1,5))
+with col_ct:
+    st.write("**Contract:**")
+
+with col_fb:
+    '''
+        [![Facebook](https://static8.lottiefiles.com/images/v3/footer/social_facebook_2.svg)](https://www.facebook.com/hoangsang2020/) 
+    '''
+    st.markdown("<br>",unsafe_allow_html=True)
+with col_ins:
+    '''
+        [![Instagram](https://static8.lottiefiles.com/images/v3/footer/social_instagram_2.svg)](https://www.instagram.com/sancho_7.4.99/) 
+    '''
+    st.markdown("<br>",unsafe_allow_html=True)
+with col_github:
+    '''
+        [![Github](https://static.xx.fbcdn.net/rsrc.php/v3/yV/r/ufIMw_ngzRh.png)](https://github.com/dinhsang1999) 
+    '''
+    st.markdown("<br>",unsafe_allow_html=True)
+with col_linkein:
+    '''
+        [![Linkein](https://img.icons8.com/ios-glyphs/24/linkedin-circled--v1.png)](https://www.linkedin.com/in/sang-dinh-a31856160) 
+    '''
+    st.markdown("<br>",unsafe_allow_html=True)
+with col_rg_logo:
+    '''
+        ![Region](https://static8.lottiefiles.com/images/v3/footer/region.svg)
+    '''
+    st.markdown("<br>",unsafe_allow_html=True)
+with col_rg:
+    '''
+        Region: VietNam
+    '''
+    st.markdown("<br>",unsafe_allow_html=True)
+
+sd = st.empty()
+oo = """
+<span style = 'color:#8795a1;font-size:14px;'>
+        SkinCancerClassification Webapp is by Design Std.Dinh Hoang Sang of Biomedical Engineering Department in International University
+</span>
+<span style = 'color:#8795a1;font-size:14px;'>
+        Copyright © 2022 Streamlit Inc.
+</span>
+"""
+sd.markdown(oo,
+unsafe_allow_html=True)
+
 if authentication_status:
     ss.empty()
+    sc.empty()
+    sd.empty()
     # --- PAGE TITLE ----
     image_cover = Image.open('./image/cover_2.png')
     st.image(image_cover,use_column_width= True)
@@ -101,16 +150,17 @@ if authentication_status:
             st_lottie(get_image_from_lottie(url = 'https://assets10.lottiefiles.com/packages/lf20_lfugvekh.json'), key='load', height=100)
 
     st.warning("***SCROLL PAGE*** may get error and reload website. Please, wait for running ***DONE***!")
+    su = st.empty()
     if selected_box == 'Image':
         '''
         '''
-        ss.empty()
+        su.empty()
         selected_image = st.sidebar.file_uploader('Upload image from PC',type=['png', 'jpg'],help='Type of image should be PNG or JPEG')
         if not selected_image:
             with st.sidebar:
                 st_lottie(get_image_from_lottie(url = 'https://assets4.lottiefiles.com/packages/lf20_urbk83vw.json'), key = 'giveimage_sidebar',height=200,width=200)
         load_model(selected_box)
-        ss.success('Download Model ✔️***Done***!!!')
+        su.success('Download Model ✔️***Done***!!!')
         if selected_image:
             if st.sidebar.checkbox('Crop image',value=False,help='When image have large size and dont focus skin lession'):
                 st.write('CROP IMAGE:')
@@ -153,12 +203,12 @@ if authentication_status:
     if selected_box == 'Image&Metadata':
         '''
         '''
-        ss.empty()
+        su.empty()
         selected_image = st.sidebar.file_uploader('Upload image from PC',type=['png', 'jpg'],help='Type of image should be PNG or JPEG')
         if not selected_image:
             with st.sidebar:
                 st_lottie(get_image_from_lottie(url = 'https://assets4.lottiefiles.com/packages/lf20_urbk83vw.json'), key = 'giveimage_sidebar',height=200,width=200)
-        ss.success('Download Model ✔️ ***Done***!!!')
+        su.success('Download Model ✔️ ***Done***!!!')
         load_model(selected_box)
         if selected_image:
             if st.sidebar.checkbox('Crop image',value=False,help='When image have large size and dont focus skin lession'):
