@@ -264,8 +264,8 @@ def back_heatmap(model,image,image_size,target_layers,Cam):
             cam.batch_size = 30
             grayscale_cam = cam(input_tensor=input_tensor,
                                 targets=None,
-                                aug_smooth=True,
-                                eigen_smooth=True)
+                                aug_smooth=False,
+                                eigen_smooth=False)
             grayscale_cam = grayscale_cam[0, :]
             cam_image = show_cam_on_image(image, grayscale_cam, use_rgb=True)
     return cam_image, image_scale
@@ -298,8 +298,8 @@ def back_heatmap_meta(model,image,image_size,target_layers,Cam,meta_features):
             cam.batch_size = 30
             grayscale_cam = cam(input_tensor=(input_tensor.float(),meta_features.float()),
                                 targets=None,
-                                aug_smooth=True,
-                                eigen_smooth=True)
+                                aug_smooth=False,
+                                eigen_smooth=False)
             grayscale_cam = grayscale_cam[0, :]
             cam_image = show_cam_on_image(image, grayscale_cam, use_rgb=True)
     return cam_image, image_scale
