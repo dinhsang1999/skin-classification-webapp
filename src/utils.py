@@ -100,7 +100,7 @@ def clear_folder(path):
 # @st.cache(allow_output_mutation=True,show_spinner=False)
 # @st.experimental_memo(show_spinner=False,max_entries=1)
 # @st.cache(allow_output_mutation=True,show_spinner=False,max_entries=1)
-@st.experimental_memo(show_spinner=False,max_entries=1)
+@st.experimental_memo(show_spinner=False)
 def load_model(model_name):
     """
     It downloads the model from the github repository and saves it in the folder `model`
